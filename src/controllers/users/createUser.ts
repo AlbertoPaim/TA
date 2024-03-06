@@ -1,12 +1,14 @@
 import { RequestHandler } from "express";
 import { PrismaClient } from '@prisma/client'
 import { z } from "zod";
+import bcrypt from "bcrypt";
 
 const prisma = new PrismaClient()
 
 export const createUser: RequestHandler = async (req, res) => {
   const { email, password } = req.body
   try {
+    const cryptedPassword = await bcrypt.hash(password, 10);
 
     const userSchema = z.object({
       email: z.string().email(),
@@ -28,7 +30,7 @@ export const createUser: RequestHandler = async (req, res) => {
     const user = await prisma.user.create({
       data: {
         email,
-        password
+        password: cryptedPassword
       }
     })
 
