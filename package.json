@@ -4,7 +4,7 @@
   "description": "-Evento\r Data date \r Local text \r Nome text \r Descrição text",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec ts-node src/server.ts",
+    "dev": "nodemon --exec ts-node src/server.js",
     "build": "tsc",
     "start": "node ./build/server.ts"
   },
