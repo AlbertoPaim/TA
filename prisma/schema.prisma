@@ -17,21 +17,23 @@ model User {
 }
 
 model Evento {
-  id          Int      @id @default(autoincrement())
-  data        DateTime
+  id          Int    @id @default(autoincrement())
+  data        String
   local       String
   name        String
   description String
+  horario     String
 }
 
 model Campanha {
   id          Int    @id @default(autoincrement())
   title       String
   description String
+  link        String @default("")
 }
 
 model Tutoriais {
-  id    Int    @id @default(autoincrement())
+  id    Int     @id @default(autoincrement())
   name  String
-  video String
+  video String? @default("")
 }
