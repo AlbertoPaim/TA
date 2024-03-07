@@ -12,8 +12,11 @@ import { createEvento } from "../controllers/eventos/createEvento";
 import { editarEvento } from "../controllers/eventos/updateEvento";
 import { deleteEvento } from "../controllers/eventos/deleteEventos";
 
-const router = Router()
+import { createTutorial } from "../controllers/tutoriais/createTutorial";
+import { editarTutorial } from "../controllers/tutoriais/updateTutorial";
+import { deleteTutorial } from "../controllers/tutoriais/deleteTutorial";
 
+const router = Router()
 
 router.post('/createUser', createUser);
 router.post('/login', login);
@@ -30,8 +33,8 @@ router.post('/criarEvento', createEvento);
 router.put('/editarEvento/:id', editarEvento);
 router.delete('/deletarEvento/:id', deleteEvento)
 
-router.post('/criarTutorial');
-router.put('/editarTutorial/:id');
-router.delete('/deletarTutorial/:id');
+router.post('/criarTutorial', createTutorial);
+router.put('/editarTutorial/:id', editarTutorial);
+router.delete('/deletarTutorial/:id', deleteTutorial);
 
 export default router;
